@@ -8,7 +8,7 @@ import com.cellfishpool.calendarpoc.model.Event
 
 class DayWiseInfoAdapter : RecyclerView.Adapter<DayWiseInfoAdapter.DayEventsItemHolder>() {
 
-    private var data = emptyList<Event>()
+    var data = emptyList<Event>()
         set(value) {
             field = value
             notifyDataSetChanged()

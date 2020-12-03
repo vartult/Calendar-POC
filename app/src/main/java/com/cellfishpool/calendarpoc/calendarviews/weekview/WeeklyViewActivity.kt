@@ -3,13 +3,15 @@ package com.cellfishpool.calendarpoc.calendarviews.weekview
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.cellfishpool.calendarpoc.R
 import com.cellfishpool.calendarpoc.calendarutils.models.RecyclerCalendarConfiguration
+import com.cellfishpool.calendarpoc.calendarviews.weekview.HorizontalRecyclerCalendarAdapter.OnDateSelected
 import com.cellfishpool.calendarpoc.databinding.ActivityWeeklyViewBinding
 import java.util.*
 
-class WeeklyViewActivity : AppCompatActivity() {
+class WeeklyViewActivity : AppCompatActivity(), OnDateSelected {
     private lateinit var date: Date
     private val startCal = Calendar.getInstance()
     private val endCal = Calendar.getInstance()
@@ -30,9 +32,7 @@ class WeeklyViewActivity : AppCompatActivity() {
                 endDate = endCal.time,
                 configuration = configuration,
                 selectedDate = date,
-                dateSelectListener = object : HorizontalRecyclerCalendarAdapter.OnDateSelected {
-                    override fun onDateSelected(date: Date) {}
-                }
+                this
             )
 
         binding.rvDays.adapter = calendarAdapterHorizontal
@@ -52,6 +52,12 @@ class WeeklyViewActivity : AppCompatActivity() {
         date.time = System.currentTimeMillis()
         endCal.time = date
         endCal.add(Calendar.MONTH, 3)
+    }
+
+    override fun onDateSelected(date: Date) {
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(binding.fragmentContainerView.id, DayWiseInfoFragment(), "NewFragmentTag")
+        ft.commit()
     }
 
 }
