@@ -37,8 +37,8 @@ class HorizontalRecyclerCalendarAdapter(
             itemView.background = null
 
             with(binding) {
-                tvDay.setTextColor(ContextCompat.getColor(tvDay.context, R.color.grey_100))
-                tvDate.setTextColor(ContextCompat.getColor(tvDate.context, R.color.black))
+                tvDay.setTextColor(ContextCompat.getColor(itemView.context, R.color.grey_100))
+                tvDate.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
 
                 when {
                     calendarItem.isHeader -> {
