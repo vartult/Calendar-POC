@@ -28,45 +28,32 @@ abstract class RecyclerCalendarBaseAdapter(
   init {
     val startCalendar = Calendar.getInstance(configuration.calendarLocale)
     val endCalendar = Calendar.getInstance(configuration.calendarLocale)
-    if (configuration.calenderViewType == RecyclerCalendarConfiguration.CalenderViewType.HORIZONTAL) {
-      startCalendar.time = startDate
-      var thisDayOfWeek: Int = startCalendar.get(Calendar.DAY_OF_WEEK)
+    startCalendar.time = startDate
+    var thisDayOfWeek: Int = startCalendar.get(Calendar.DAY_OF_WEEK)
 
-      if (thisDayOfWeek - 1 < 0) {
-        thisDayOfWeek = 7 + (thisDayOfWeek - 1)
-        startCalendar.add(Calendar.DATE, -1 * thisDayOfWeek)
-      } else {
-        startCalendar.add(Calendar.DATE, -1 * (thisDayOfWeek - 1))
-      }
-      startCalendar[Calendar.HOUR_OF_DAY] = 0
-      startCalendar[Calendar.MINUTE] = 0
-      startCalendar[Calendar.SECOND] = 0
-      startCalendar[Calendar.MILLISECOND] = 0
-
-      endCalendar.time = endDate
-      endCalendar[Calendar.DAY_OF_MONTH] = endCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-      endCalendar[Calendar.HOUR_OF_DAY] = 0
-      endCalendar[Calendar.MINUTE] = 0
-      endCalendar[Calendar.SECOND] = 0
-      endCalendar[Calendar.MILLISECOND] = 0
+    if (thisDayOfWeek - 1 < 0) {
+      thisDayOfWeek = 7 + (thisDayOfWeek - 1)
+      startCalendar.add(Calendar.DATE, -1 * thisDayOfWeek)
     } else {
-      startCalendar.time = startDate
-      startCalendar[Calendar.DAY_OF_MONTH] = 1
-      startCalendar[Calendar.HOUR_OF_DAY] = 0
-      startCalendar[Calendar.MINUTE] = 0
-      startCalendar[Calendar.SECOND] = 0
-      startCalendar[Calendar.MILLISECOND] = 0
-
-      endCalendar.time = endDate
-      endCalendar[Calendar.DAY_OF_MONTH] = endCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-      endCalendar[Calendar.HOUR_OF_DAY] = 0
-      endCalendar[Calendar.MINUTE] = 0
-      endCalendar[Calendar.SECOND] = 0
-      endCalendar[Calendar.MILLISECOND] = 0
+      startCalendar.add(Calendar.DATE, -1 * (thisDayOfWeek - 1))
     }
+    startCalendar[Calendar.HOUR_OF_DAY] = 0
+    startCalendar[Calendar.MINUTE] = 0
+    startCalendar[Calendar.SECOND] = 0
+    startCalendar[Calendar.MILLISECOND] = 0
+
+    endCalendar.time = endDate
+    endCalendar[Calendar.DAY_OF_MONTH] = endCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    endCalendar[Calendar.HOUR_OF_DAY] = 0
+    endCalendar[Calendar.MINUTE] = 0
+    endCalendar[Calendar.SECOND] = 0
+    endCalendar[Calendar.MILLISECOND] = 0
 
     val runnable = Runnable {
-      while (startCalendar.time.before(endCalendar.time) || startCalendar.time == endCalendar.time) {
+      while (startCalendar.time.before(
+              endCalendar.time
+          ) || startCalendar.time == endCalendar.time
+      ) {
         val dayOfMonth: Int = startCalendar.get(Calendar.DAY_OF_MONTH)
         var dayOfWeek: Int = startCalendar.get(Calendar.DAY_OF_WEEK)
         if (configuration.calenderViewType == RecyclerCalendarConfiguration.CalenderViewType.VERTICAL && dayOfMonth == 1) { // First Day of month
@@ -123,7 +110,10 @@ abstract class RecyclerCalendarBaseAdapter(
     return calendarItemList.size
   }
 
-  override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+  override fun onBindViewHolder(
+    holder: RecyclerView.ViewHolder,
+    position: Int
+  ) {
     onBindViewHolder(
         holder = holder,
         position = position,

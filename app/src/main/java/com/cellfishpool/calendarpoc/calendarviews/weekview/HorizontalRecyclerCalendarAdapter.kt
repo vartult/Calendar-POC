@@ -15,23 +15,22 @@ import java.util.Calendar
 import java.util.Date
 
 class HorizontalRecyclerCalendarAdapter(
-    startDate: Date,
-    endDate: Date,
-    private val configuration: RecyclerCalendarConfiguration,
-    private var selectedDate: Date,
+    startDate: Date, endDate: Date, private val configuration: RecyclerCalendarConfiguration,
+    private var selectedDate: Date, private var currentDate: Date,
     private val dateSelectListener: OnDateSelected
 ) : RecyclerCalendarBaseAdapter(startDate, endDate, configuration) {
+
     override fun onBindViewHolder(
         holder: RecyclerView.ViewHolder,
         position: Int,
         calendarItem: RecyclerCalenderViewItem
     ) {
-        (holder as MonthCalendarViewHolder).bind(calendarItem)
+        (holder as MonthCalendarViewHolder).bind(calendarItem, position)
     }
 
     inner class MonthCalendarViewHolder(private val binding: ItemCalendarHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(calendarItem: RecyclerCalenderViewItem) {
+        fun bind(calendarItem: RecyclerCalenderViewItem, position: Int) {
             itemView.visibility = View.VISIBLE
             itemView.setOnClickListener(null)
             itemView.background = null
@@ -54,7 +53,6 @@ class HorizontalRecyclerCalendarAdapter(
 
                         tvDay.text = year.toString()
                         tvDate.text = month
-
                         itemView.setOnClickListener(null)
                     }
                     calendarItem.isEmpty -> {
@@ -71,8 +69,7 @@ class HorizontalRecyclerCalendarAdapter(
                                 locale = configuration.calendarLocale,
                                 date = calendarItem.date,
                                 format = CalendarUtils.DB_DATE_FORMAT
-                            )
-                                ?: ""
+                            ) ?: ""
                         val stringSelectedTimeFormat: String =
                             CalendarUtils.dateStringFromFormat(
                                 locale = configuration.calendarLocale,
@@ -81,11 +78,11 @@ class HorizontalRecyclerCalendarAdapter(
                             ) ?: ""
 
                         if (stringCalendarTimeFormat == stringSelectedTimeFormat) {
-                            tvDate.setBackgroundResource(R.color.purple_200)
+                            itemView.setBackgroundResource(R.drawable.layout_selected_date)
                             tvDate.setTextColor(
                                 ContextCompat.getColor(
                                     itemView.context,
-                                    R.color.white
+                                    R.color.black
                                 )
                             )
                         }
@@ -103,8 +100,9 @@ class HorizontalRecyclerCalendarAdapter(
                                 date = calendarDate.time,
                                 format = CalendarUtils.DISPLAY_DATE_FORMAT
                             ) ?: ""
+
                         itemView.setOnClickListener {
-                            tvDate.setBackgroundResource(R.drawable.layout_selected_date)
+                            selectedDate = calendarItem.date
                             dateSelectListener.onDateSelected(calendarItem.date)
                             notifyDataSetChanged()
                         }
@@ -113,6 +111,7 @@ class HorizontalRecyclerCalendarAdapter(
             }
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

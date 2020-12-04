@@ -44,16 +44,24 @@
         app:layout_constraintStart_toEndOf="@id/chevron_left"
         app:layout_constraintTop_toTopOf="parent"
         />
-
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_days"
+        />
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_days"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date"
         />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
