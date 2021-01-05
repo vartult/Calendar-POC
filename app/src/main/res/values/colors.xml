@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="colorPrimary">#117aca</color>
+  <color name="colorPrimaryDark">#eceff1</color>
+  <color name="colorAccent">#03DAC5</color>
+
+  <color name="colorPrimary500">#00bcd4</color>
+
+  <color name="primary_50">#e0f6fb</color>
+  <color name="primary_dark_50">#b0bec5</color>
+
+  <color name="colorError">#9e1c0e</color>
+  <color name="colorWhite">#FFFFFF</color>
+  <color name="colorWhite60">#99FFFFFF</color>
+
+  <color name="colorTextPrimary">#263238</color>
+  <color name="colorTextSecondary">#37474f</color>
+  <color name="colorTextSubTitle">#455a64</color>
+  <color name="colorTextDark300">#90a4ae</color>
+  <color name="colorTextDark400">#78909c</color>
+  <color name="colorTextDark500">#607d8b</color>
+
+  <color name="colorBlue">#2654b0</color>
+  <color name="colorBlueLight">#6f87c7</color>
+  <color name="color_blue_100">#c1cae7</color>
+  <color name="color_blue_900">#00277a</color>
+  <color name="color_blue_600">#1f4ca7</color>
+  <color name="color_blue_800">#0a4775</color>
+  <color name="color_blue_400">#4e6dbb</color>
+  <color name="color_blue_50">#e7eaf5</color>
+
+  <color name="colorGreen">#6dc89b</color>
+
+  <color name="colorGreyLight">#546e7a</color>
+  <color name="colorOffGreyLight">#eceff1</color>
+  <color name="colorGreyLightest">#cfd8dc</color>
+
+  <color name="tabSelected">#0f69ae</color>
+  <color name="tabNormal">#a1d2f7</color>
+  <color name="colorBlueLightBackground">#e7f4fd</color>
+  <color name="complementary200">#da8e89</color>
+  <color name="complementary_400">#ca4637</color>
+  <color name="colorBlueGrey">#78909c</color>
+
+  <color name="transparent">#00000000</color>
+
+  <color name="colorHostText">#fff</color>
+  <color name="colorGuestText">#455a64</color>
+  <color name="colorHostSolid">#455a64</color>
+  <color name="colorGuestSolid">#eceff1</color>
+  <color name="colorGuestStroke">#fff</color>
+  <color name="colorHostStroke">#2654b0</color>
+  <color name="colorBlack">#000000</color>
+
+  <color name="orange">#ec682e</color>
+
+  <color name="purple">#6a2c70</color>
+  <color name="burgundy">#b83b5e</color>
+
+  <color name="colorChipGreen">#007e4d</color>
+  <color name="colorChipYellow">#ffb300</color>
+  <color name="colorYellow100">#dfa100</color>
+  <color name="colorOrange100">#e4681e</color>
+  <color name="colorChipRed">#c93519</color>
+</resources>

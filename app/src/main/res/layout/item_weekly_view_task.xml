@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  >
+  <data>
+
+  </data>
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/appCompatImageView3"
+      android:layout_width="@dimen/dimen_60dp"
+      android:layout_height="@dimen/dimen_60dp"
+      android:layout_marginStart="@dimen/dimen_16dp"
+      android:layout_marginTop="@dimen/dimen_16dp"
+      android:layout_marginBottom="@dimen/dimen_16dp"
+      android:src="@drawable/ic_launcher_background"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/materialTextView3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen_12dp"
+      android:text="Clean Living"
+      app:layout_constraintStart_toEndOf="@+id/appCompatImageView3"
+      app:layout_constraintTop_toTopOf="@+id/appCompatImageView3"
+      />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/materialTextView4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/dimen_8dp"
+      android:text="Nutrition"
+      android:textSize="@dimen/text_12sp"
+      app:layout_constraintStart_toStartOf="@+id/materialTextView3"
+      app:layout_constraintTop_toBottomOf="@+id/materialTextView3"
+      />
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/materialTextView5"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/dimen_4dp"
+      android:text="Available till: Dec 22, 2020"
+      android:textSize="@dimen/text_12sp"
+      app:layout_constraintStart_toStartOf="@+id/materialTextView4"
+      app:layout_constraintTop_toBottomOf="@+id/materialTextView4"
+      />
+    <androidx.appcompat.widget.AppCompatImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/dimen_32dp"
+      android:src="@drawable/ic_chevron_right"
+      app:layout_constraintBottom_toBottomOf="@+id/materialTextView5"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/materialTextView3"
+      />
+    <View
+      android:layout_width="@dimen/dimen_0dp"
+      android:layout_height="@dimen/dimen_1dp"
+      android:layout_marginEnd="@dimen/dimen_16dp"
+      android:background="@color/colorGreyLightest"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@+id/appCompatImageView3"
+      />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
